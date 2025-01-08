@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src>
+    // 브라우저에서는 window가 전역을 관리함.
+    globalThis.x = 10;
+    function f() {
+
+    }
+    console.log(globalThis.x);
+</script>
+
+</html>
+<!-- globalthis 는 전역변수로 적절하게 window와 global 중 선택. -->

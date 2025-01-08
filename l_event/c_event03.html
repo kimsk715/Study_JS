@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키 이벤트</title>
+</head>
+
+<body>
+    <h1>키 이벤트</h1>
+    <input type="text" placeholder="이름">
+    <p id="name"></p>
+</body>
+<script>
+    const input = document.querySelector("input[placeholder=이름]")
+    const p = document.getElementById("name")
+    // keyup 또는 keydown
+    // keydown은 쓰면 딜레이 생김.
+
+
+    input.addEventListener("keyup", (e) => {
+        if (e.keyCode === 13) {
+            p.innerText = e.target.value;
+        }
+        // p.innerText = e.keyCode;
+        // p.innerText = e.target.value;
+    })
+</script>
+
+</html>

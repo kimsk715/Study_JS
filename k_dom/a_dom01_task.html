@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li class="car">페라리</li>
+        <li class="car">람보르기니</li>
+        <li class="car">벤츠</li>
+    </ul>
+    <script>
+        // 자동차 중 ferrari만 글자색 빨강.
+        // 나머지는 글자 크기를 20px로 설정.
+        const List = document.getElementsByClassName("car")
+        HTMLCollection.prototype.forEach = Array.prototype.forEach
+        // console.log(List)
+        List[0].classList.add("ferrari");
+        List.forEach((car) => {
+            const condition = car.classList[1];
+            // car.style[condition ? "color" : "fontsize"] = condition ? "red" : "20px";
+            const style = condition ? "color: red" : "font-size: 20px";
+            car.setAttribute("style", style);
+
+        })
+        // List.forEach((li) => {
+        //     if (li.innerText.includes("페라리")) {
+        //         li.style.color = "red";
+        //     }
+        //     else {
+        //         li.style.fontSize = "20px"
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

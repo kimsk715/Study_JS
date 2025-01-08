@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 02</title>
+</head>
+<!-- 특정 부분에서 마우스가 떨어질 때 발생하는 이벤트 -->
+
+<body>
+    <h1>포커스, 블러 이벤트</h1>
+    <form action="" name="info">
+        <input type="text" name="birth" placeholder="생년월일">
+        <input type="text" name="phone" placeholder="핸드폰 번호">
+    </form>
+    <script>
+        const birth = info.birth;
+        const phone = info.phone;
+
+        const birthRegex =
+            /^(19[0-9][0-9]|20\d{2})\.?(0[1-9]|1[1-2])\.?(0[1-9]|[1-2][0-9]|3[0-1])$/;
+        const phoneRegex = /^01([0|1|6|7|8|9])\-?([0-9]{3,4})\-?([0-9]{4})$/;
+
+        birth.addEventListener("blur", () => {
+            if (birthRegex.test(birth.value)) {
+                birth.style.border = "1px solid blue";
+                return;
+            }
+            birth.style.border = "1px solid red";
+            birth.focus();
+            // 조건에 맞을 때 까지 커서가 이동하지 않음.
+        });
+
+        phone.addEventListener("blur", () => {
+            if (phoneRegex.test(phone.value)) {
+                phone.style.border = "1px solid blue";
+                return;
+            }
+            phone.style.border = "1px solid red";
+            phone.focus();
+        });
+
+        //  \는 문자의 마침표 역할.
+        // {}는 자릿수, []는 한 자릿수에 들어가는 조건, d{2}는 2자릿수의 정수, $는 최종 마침표 
+    </script>
+</body>
+
+</html>

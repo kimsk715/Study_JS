@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>클릭 이벤트 실습</title>
+</head>
+
+<body>
+    <form action="" name="form">
+        <div>
+            <input type="text" name="member-id" placeholder="아이디" />
+        </div>
+        <p id="id-message" class="green"></p>
+        <div>
+            <input type="password" name="member-password" placeholder="비밀번호" />
+        </div>
+        <p id="password-message" class="green"></p>
+        <button type="button">검사</button>
+    </form>
+</body>
+<script>
+    // 아이디를 검사
+    // 1. 아이디가 입력되지 않았을 때 적절한 메세지를 id-message에 빨간색으로 작성
+    // 2. 아이디가 입력되었을 때 적절한 메세지를 id-message에 녹색으로 작성
+
+    // 비밀번호를 검사
+    // 1. 비밀번호가 입력되지 않았을 때 적절한 메세지를 password-message에 빨간색으로 작성
+    // 2. 비밀번호가 입력되었을 때 적절한 메세지를 password-message에 녹색으로 작성
+    const button = document.querySelector("button[type=button]");
+    // console.log(button)
+    const idmessage = document.querySelector("#id-message")
+    const pwmessage = document.querySelector("#password-message")
+    const idinput = idmessage.previousElementSibling.firstElementChild
+    const pwinput = pwmessage.previousElementSibling.firstElementChild
+
+    button.addEventListener("click", () => {
+        if (idinput.value == "") {
+            idmessage.innerText = "아이디를 입력해주세요"
+
+            if (pwinput.value == "") {
+                pwmessage.innerText = "비밀번호를 입력해주세요"
+                with (pwmessage.style) {
+                    color = "red"
+                }
+            }
+            else {
+                pwmessage.innerText = "안전한 비밀번호에요~"
+                with (pwmessage.style) {
+                    color = "green"
+                }
+            }
+            with (idmessage.style) {
+                color = "red"
+            }
+        }
+        else {
+            idmessage.innerText = "굿 아이디여."
+
+            if (pwinput.value == "") {
+                pwmessage.innerText = "비밀번호를 입력해주세요"
+                with (pwmessage.style) {
+                    color = "red"
+                }
+            }
+            else {
+                pwmessage.innerText = "안전한 비밀번호에요~"
+                with (pwmessage.style) {
+                    color = "green"
+                }
+            }
+            with (idmessage.style) {
+                color = "green"
+            }
+        }
+    });
+</script>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>클릭 이벤트 실습</title>
+        <style>
+            p {
+                color: red;
+            }
+
+            p.green {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="" name="form">
+            <div>
+                <input type="text" name="member-id" placeholder="아이디" />
+            </div>
+            <p id="id-message" class="green"></p>
+            <div>
+                <input
+                    type="password"
+                    name="member-password"
+                    placeholder="비밀번호"
+                />
+            </div>
+            <p id="password-message" class="green"></p>
+            <button type="button">검사</button>
+        </form>
+    </body>
+    <script>
+        const idInput = document.querySelector("input[name=member-id]");
+        const idMessage = document.getElementById("id-message");
+
+        const passwordInput = document.querySelector(
+            "input[name=member-password]"
+        );
+        const passwordMessage = document.getElementById("password-message");
+        const button = passwordMessage.nextElementSibling;
+
+        button.addEventListener("click", () => {
+            // 아이디를 검사
+            // 1. 아이디가 입력되지 않았을 때 적절한 메세지를 id-message에 빨간색으로 작성
+            // 2. 아이디가 입력되었을 때 적절한 메세지를 id-message에 녹색으로 작성
+            if (idInput.value) {
+                idMessage.innerText = "멋진 아이디네요!";
+                idMessage.classList.add("green");
+                // return;
+            } else {
+                idMessage.innerText = "아이디를 입력해주세요.";
+                idMessage.classList.remove("green");
+            }
+
+            // 비밀번호를 검사
+            // 1. 비밀번호가 입력되지 않았을 때 적절한 메세지를 password-message에 빨간색으로 작성
+            // 2. 비밀번호가 입력되었을 때 적절한 메세지를 password-message에 녹색으로 작성
+            if (passwordInput.value) {
+                passwordMessage.innerText = "적합한 비밀번호입니다.";
+                passwordMessage.classList.add("green");
+                // return;
+            } else {
+                passwordMessage.innerText = "비밀번호를 입력해주세요.";
+                passwordMessage.classList.remove("green");
+            }
+        });
+    </script>
+</html> -->

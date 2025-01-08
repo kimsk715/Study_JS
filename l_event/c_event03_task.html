@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            outline: none;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" name="input" autocomplete="off" placeholder="이름">
+    <ul id="items">
+
+    </ul>
+</body>
+<script>
+    // 입력한 키 중, 엔터일 경우 ul안에 li 태그로 입력한 문자열값 추가
+    // 작성한 값은 사라지게 함.
+    // 아무것도 입력하지 않으면 빨간색 적용
+    const input = document.querySelector("input[placeholder=이름]")
+    const List = document.getElementById("items");
+    const tempstyle = input.style.border;
+    input.addEventListener("keyup", (e) => {
+        if (e.keyCode === 13) {
+            if (e.target.value == "") {
+                input.style.border = "3px solid red"
+                input.focus()
+
+            }
+            else {
+                const newli = document.createElement("li")
+                newli.innerText = e.target.value;
+                e.target.value = "";
+                List.appendChild(newli);
+                input.border.style = "tempstyle";
+            }
+
+
+        }
+    })
+
+</script>
+
+</html>
+<!--  -->

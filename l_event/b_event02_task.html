@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포커스, 블러 이벤트 실습</title>
+</head>
+<style>
+    input {
+        outline: none;
+    }
+</style>
+
+<body>
+    <h1>이름과 나이</h1>
+    <form action="" name="info">
+        <input type="text" name="name" placeholder="이름">
+        <input type="text" name="age" placeholder="나이">
+    </form>
+</body>
+
+<script>
+    const name = info.name;
+    const age = info.age;
+
+    const nameRegex = /^[^0-9][^0-9][^0-9]$/;
+    const ageRegex = /^(\d{1})$|^(\d{2})$|^(1\d{2})$/;
+    name.addEventListener("blur", () => {
+        if (nameRegex.test(name.value)) {
+            name.style.border = "1px solid red";
+            return;
+        }
+        name.style.border = "1px solid green";
+        name.focus();
+
+    });
+    // 이벤트가 발생하면, 콜백함수의 매개변수에 이벤트 객체가 들어온다.
+    // 이 이벤트 객체는 이벤트를 발생시킨 객체를 target에 저장해놓는다.
+    //  age == e.target
+    age.addEventListener("blur", () => {
+        if (ageRegex.test(age.value)) {
+            age.style.border = "1px solid red";
+            return;
+        }
+        age.style.border = "1px solid green";
+        age.focus();
+
+    });
+</script>
+
+<!-- 여기서는 별도의 조건이 없으므로, inputs를 통해 일괄적으로 가져와서 -->
+<!-- 모든 input이 focus와 blur가 실행되도록 해도됨 -->
+
+</html>
