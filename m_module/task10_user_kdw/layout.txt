@@ -1,0 +1,34 @@
+JavaScript에서 문자열과 DOM 요소는 서로 다른 메서드를 가지고 있음.
+contains와 includes 차이:
+
+1. **문자열(String) 메서드**
+```javascript
+let text = "Hello World";
+text.includes("Hello");    // ✅ 문자열에서 사용 가능
+text.contains("Hello");    // ❌ 에러 발생
+```
+
+2. **DOM 요소 메서드**
+```javascript
+let div = document.querySelector("div");
+div.contains(childElement);    // ✅ DOM 요소에서 사용 가능
+div.includes(childElement);    // ❌ 에러 발생
+```
+
+`contains()`는:
+- DOM 요소가 특정 자식 요소를 포함하고 있는지 확인하는 메서드
+- 예시:
+```javascript
+let parent = document.querySelector(".parent");
+let child = document.querySelector(".child");
+
+console.log(parent.contains(child)); // true/false
+```
+
+반면 `includes()`는:
+- 문자열이나 배열에서 특정 값이 포함되어 있는지 확인하는 메서드
+- 예시:
+```javascript
+let text = "Hello World";
+console.log(text.includes("World")); // true/false
+```

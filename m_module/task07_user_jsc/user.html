@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>사용자 정보 조회</title>
+        <link rel="stylesheet" href="layout.css" />
+    </head>
+    <body>
+        <!-- 입력한 사용자 번호보다 큰 사용자 번호를 가진 사용자 리스트를 보여줌 
+             사용자 숫자보다 높은 사용자 번호를 입력하면 에러 메세지를 출력함. -->
+        <div>사용자 번호<input type="text" /></div>
+        <button id="get-users">사용자 목록</button>
+
+        <div id="message"></div>
+        <!-- 사용자 번호 적정성에 따른 메세지 출력-->
+
+        <table id="users"></table>
+        <!-- 입력한 사용자 번호 이상의 사용자 리스트 출력 -->
+    </body>
+    <script src="service.js"></script>
+    <script src="layout.js"></script>
+    <script src="event.js"></script>
+</html>

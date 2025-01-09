@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진 검색 서비스</title>
+    <style>
+        img {
+            width: 35%;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td {
+            border-bottom: 1px solid gray;
+            border-collapse: collapse;
+            margin: 5px 0;
+        }
+
+        tr td:nth-child(2) {
+            width: 200px;
+            height: 100%;
+        }
+
+        tr td:first-child,
+        tr td:Last-child {
+            width: 50px;
+            height: 100%;
+        }
+
+        td {
+            display: inline-block;
+            width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        td.on {
+            display: inline-block;
+            align-items: center;
+            justify-content: center;
+        }
+
+        td {
+            display: none;
+        }
+
+        div.tablewrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div.wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px auto;
+        }
+
+        input {
+            width: 300px;
+            height: 50px;
+            border-radius: 6px;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        button {
+            width: 70px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 검색어를 넣으면 이미지의 title을 기준으로 검색해줌.  -->
+    <!-- Search 버튼을 클릭해도 되고, Enter 키를 입력해도 검색이 가능함. -->
+    <!-- 옆에 이미지가 뜨는데, 썸네일 누르면 원본 이미지를 새 창에 띄워줌. -->
+    <!-- 출처 이미지 자체의 이슈로 로딩이 매우 느릴 수 있습니다. -->
+    <div class="wrap">
+        <input type="text" id="ID" placeholder="검색어를 입력해주세요" autocomplete="off">
+        <button id="Search">Search</button>
+    </div>
+    <div class="tablewrap">
+        <table id="table"></table>
+    </div>
+
+</body>
+<script src="service.js"></script>
+<script src="layout.js"></script>
+<script src="event.js"></script>
+
+</html>
