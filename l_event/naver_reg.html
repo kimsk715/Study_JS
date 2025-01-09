@@ -23,14 +23,20 @@
     const terms = document.querySelectorAll("input.term")
     const termA = document.querySelectorAll("input.termA")
     all.addEventListener("change", (e) => {
-        terms.forEach((term) => term.checked = e.target.value)
+        terms.forEach((term) => term.checked = e.target.checked)
+        // all에 change 라는 변화가 생겼을 때,  terms에 있는 각자에 대해 checked 상태가
+        // a의 상태 변화와 같도록 함.
     })
 
     termA.forEach((term) => {
         term.addEventListener("change", (e) => {
             all.checked = termA.filter((term) => term.checked).length === 2;
+            // term이 checked인 것들만 filter를 통해 추출한 array의 length가 2일 때가 필수 동의가 완료된 상태이므로
+            // 그 상태가 all.checked도 true임.
         })
     })
+
+
 </script>
 
 </html>

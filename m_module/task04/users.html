@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유저 검색 서비스</title>
+    <style>
+        td,
+        th {
+            display: none;
+        }
+
+        th.on,
+        td.on {
+            display: inline-block;
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+        }
+    </style>
+</head>
+<!-- 이름 또는 메일에 특정 문구가 포함되어 있는 경우 결과가 뜸. -->
+<!-- 다만 대소문자 구분이 안 됨 -->
+
+<body>
+    <label><input type="text"><button id="Search">검색</button></label>
+    <table id="table">
+    </table>
+</body>
+<script src="service.js"></script>
+<script src="layout.js"></script>
+<script src="event.js"></script>
+
+</html>
